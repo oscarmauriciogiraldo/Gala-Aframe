@@ -1,11 +1,21 @@
 <div class="contMain">
   <app-aframe-model></app-aframe-model>
+  <div class="contVideo" *ngIf="videoVisible">
+    <youtube-player videoId="TxU9n2hdjfw"
+                  class="video"
+                  (ready)="onReady($event)"
+                  (stateChange)="onStateChange($event)"
+                  [width]="widthVideo"
+                  [height]="heightVideo">
+  </youtube-player>
+  </div>
   <div class="continfo">
     <div class="contMenu">
       <div class="menu" id="menu">
         <div class="contBtns">
           <button class="btn" (click)="openWindowChat()"><i class="ri-message-2-fill colorIcono"></i></button>
           <button class="btn" (click)="openDonatePayPal()"><i class="ri-paypal-fill colorIcono"></i></button>
+          <a class="btn" ><i class="ri-camera-fill colorIcono"></i></a>
         </div>
         <div id="logout" class="flex-lg-column d-lg-block" (click)="logOut()">
           <ul class="nav side-menu-nav justify-content-center">

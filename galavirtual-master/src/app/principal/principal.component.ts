@@ -11,6 +11,9 @@ export class PrincipalComponent implements OnInit {
   windowChatVisible = false;
   textBtnOpenChat = 'Abrir chat';
   payPalVisible = false;
+  videoVisible = true;
+  widthVideo = 1000;
+  heightVideo = 1000;
 
   constructor(
     private authService: AuthenticationService,
@@ -18,8 +21,22 @@ export class PrincipalComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.mostraVideo();
     this.redirect();
     this.widthScreen();
+  }
+
+  mostraVideo(): void {
+    const v = localStorage.getItem('v');
+
+    if (v === 'ok') {
+      this.videoVisible = false;
+    } else {
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      document.body.appendChild(tag);
+      this.dimensionesVideo();
+    }
   }
 
   redirect(): void {
@@ -74,10 +91,29 @@ export class PrincipalComponent implements OnInit {
     }
   }
 
+  dimensionesVideo(): void {
+    this.widthVideo = window.innerWidth;
+    this.heightVideo = window.innerHeight;
+  }
+
+  onReady(event: YT.PlayerEvent): void {
+    event.target.playVideo();
+  }
+
+  onStateChange(event: YT.OnStateChangeEvent): void {
+    if (event.data === YT.PlayerState.CUED) {
+      event.target.playVideo();
+    }  else if (event.data === YT.PlayerState.ENDED) {
+      this.videoVisible = false;
+      localStorage.setItem('v', 'ok');
+    }
+  }
+
   logOut(): void {
     localStorage.removeItem('idUser');
     localStorage.removeItem('idChat');
     localStorage.removeItem('nameUser');
+    localStorage.removeItem('v');
     localStorage.setItem('sesion', 'false');
     this.authService.logout();
     this.router.navigate(['/account/login']);

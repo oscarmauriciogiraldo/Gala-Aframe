@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
@@ -7,10 +7,13 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-
-  <!---->
   <!---->
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+  <!--
+  <script src="js/collider-check.js"></script>
+  -->
+
   <!--libreria de componentes-->
   <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
 
@@ -18,13 +21,37 @@
   <script src="assets/js/highlight.js"></script>
   <script src="assets/js/info-panel.js"></script>
   <!---->
-
 </head>
 
 <body>
-
   <app-root></app-root>
+  <div id="cont"></div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  <script>
+    window.onload = () => {
+      // html2canvas(document.body, {
+      //   onrendered (canvas) {
+      //     var inputHidden = document.createElement("input");
+      //     inputHidden.type = "hidden";
+      //     inputHidden.id = "inputHiddenScreensho";
+      //     inputHidden.value = canvas.toDataURL();
+      //     document.getElementById("cont").append(inputHidden);
+      //   }
+      // });
+    }
+
+    function tomarscreenshot() {
+      html2canvas(document.body, {
+        onrendered (canvas) {
+          var link = document.getElementById('download');;
+          var image = canvas.toDataURL();
+          link.href = image;
+          link.download = 'galaVirtual.png';
+        }
+      });
+    }
+  </script>
 </body>
 
 </html>

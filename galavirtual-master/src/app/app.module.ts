@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -43,6 +44,7 @@ export function createTranslateLoader(http: HttpClient): any {
     BrowserModule,
     AppRoutingModule,
     ChatModule,
+    YouTubePlayerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
