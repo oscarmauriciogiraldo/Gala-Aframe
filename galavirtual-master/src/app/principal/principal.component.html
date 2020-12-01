@@ -1,0 +1,32 @@
+<div class="contMain">
+  <app-aframe-model></app-aframe-model>
+  <div class="continfo">
+    <div class="contMenu">
+      <div class="menu" id="menu">
+        <div class="contBtns">
+          <button class="btn" (click)="openWindowChat()"><i class="ri-message-2-fill colorIcono"></i></button>
+          <button class="btn" (click)="openDonatePayPal()"><i class="ri-paypal-fill colorIcono"></i></button>
+        </div>
+        <div id="logout" class="flex-lg-column d-lg-block" (click)="logOut()">
+          <ul class="nav side-menu-nav justify-content-center">
+            <li class="nav-item" ngbTooltip="logout">
+              <a class="nav-link" id="pills-chat-tab" href="javascript: void(0);">
+                <i class="ri-logout-circle-r-line colorIcono"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="contSecundario">
+      <div id="contChat" class="contChat" *ngIf="windowChatVisible">
+        <app-index></app-index>
+      </div>
+      <div class="contPayPal" *ngIf="payPalVisible">
+        <p class="textoDonacion">Con el QR o el link podras realizar tus donaciones pro medio de PayPal</p>
+        <img class="qrDonacion" src="../../assets/images/QRdonaciones.png">
+        <a class="textoDonacion colorIcono marginTopLink" target="_blank" href="https://www.paypal.com/donate?hosted_button_id=FNWXBGKZ625DJ">https://www.paypal.com/donate?hosted_button_id=FNWXBGKZ625DJ</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,107 @@
+.contMain {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.continfo {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contMenu {
+  width: 100vw;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  z-index: 1000;
+}
+
+.menu {
+  width: 400px;
+  height: 50px;
+  padding-left: 20px !important;
+  background-color: rgb(245, 245, 245);
+  border-bottom-left-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contBtns {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn {
+  height: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.btn:hover {
+  border: 1px solid #0c71c3;
+}
+
+.logout {
+  right: 15px !important;
+}
+
+.contSecundario {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  z-index: 1000;
+}
+
+.contChat {
+  position: absolute;
+  width: 380px;
+  max-height: 500px !important;
+  height: 90vh !important;
+  z-index: 90;
+}
+
+.contPayPal {
+  position: absolute;
+  width: 380px;
+  max-height: 500px !important;
+  height: 90vh !important;
+  margin-top: 15px;
+  background-color: rgb(245, 245, 245);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.textoDonacion {
+  width: 80%;
+  text-align: center;
+  font-size: 18px;
+}
+
+.qrDonacion {
+  width: 60%;
+}
+
+.marginTopLink {
+  margin-top: 15px;
+}
+
+.colorIcono {
+  color: #0c71c3 !important;
+}
+
+// color chats #0c71c3
